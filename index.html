@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Challenge Selector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="selector">
+  <header class="site-header">
+    <a class="brand" href="index.html">CyberOnslaught_CTF.exe</a>
+    <nav class="tabs" aria-label="Challenge tabs">
+      <a href="sight.html" data-tab="plain-sight" target="_blank" rel="noopener noreferrer">Hidden in Plain Sight</a>
+      <a href="logo.html" data-tab="logo">Hidden in the Logo</a>
+      <a href="solarflare.html" data-tab="solarflare">SolarFlare Forensics</a>
+    </nav>
+  </header>
+
+  <main class="challenge-card">
+    <h1>Universal Selector</h1>
+    <p>
+      Choose a challenge page. Each one has its own CTF input checker.
+    </p>
+
+    <section class="selector-grid" aria-label="Challenge selection">
+      <a class="selector-item" href="sight.html" target="_blank" rel="noopener noreferrer">
+        <h2>Hidden in Plain Sight</h2>
+        <p>Open the text-based challenge and submit the flag.</p>
+      </a>
+      <a class="selector-item" href="logo.html">
+        <h2>Hidden in the Logo</h2>
+        <p>Inspect the logo image artifact and submit the flag.</p>
+      </a>
+      <a class="selector-item" href="solarflare.html">
+        <h2>SolarFlare Forensics</h2>
+        <p>Investigate the PNG header issue and submit the flag.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; CyberOnslaught</p>
+  </footer>
+</body>
+</html>

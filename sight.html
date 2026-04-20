@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CTF Challenge</title>
+</head>
+
+<body style="background-color:black; color:white; text-align:center; padding:50px;">
+
+  <h1 style="color:lime;">CTF Challenge: Hidden in Plain Sight</h1>
+
+  <p>Find the hidden flag.</p>
+
+  <p>Hint: Developers leave secrets 👀</p>
+
+  <!-- FLAG{inspect_the_source} -->
+
+  <p style="color:black;">
+    RkxBR3tiYXNlNjRfaXNfZnVufQ==
+  </p>
+
+  <form id="ctf-check" data-ctfs="FLAG{inspect_the_source}|FLAG{base64_is_fun}|FLAG{console_master}" style="margin-top:20px;">
+    <input id="ctf-input" type="text" placeholder="Enter CTF flag" style="padding:8px; width:280px;" />
+    <button type="submit" style="padding:8px 12px;">Check</button>
+    <p id="ctf-result"></p>
+  </form>
+
+  <script>
+    console.log("Nothing to see here...");
+    console.log("FLAG{console_master}");
+
+    const form = document.getElementById("ctf-check");
+    const input = document.getElementById("ctf-input");
+    const result = document.getElementById("ctf-result");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const expected = form.dataset.ctfs.split("|");
+      const entered = input.value.trim().toLowerCase();
+      const accepted = new Set();
+
+      expected.forEach(function (flag) {
+        const normalized = flag.trim().toLowerCase();
+        if (!normalized) {
+          return;
+        }
+
+        accepted.add(normalized);
+
+        const innerMatch = normalized.match(/[({]([^)}]+)[)}]/);
+        if (innerMatch && innerMatch[1]) {
+          accepted.add(innerMatch[1].trim().toLowerCase());
+        }
+      });
+
+      if (accepted.has(entered)) {
+        result.innerHTML = "Correct. <a href='index.html' style='color:lime;'>Return to nav page</a>";
+        result.style.color = "lime";
+      } else {
+        result.textContent = "Incorrect";
+        result.style.color = "red";
+      }
+    });
+  </script>
+
+</body>
+</html>

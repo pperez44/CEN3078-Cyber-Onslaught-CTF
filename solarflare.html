@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SolarFlare Forensics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="solarflare">
+  <header class="site-header">
+    <a class="brand" href="index.html">CyberOnslaught_CTF.exe</a>
+    <nav class="tabs" aria-label="Challenge tabs">
+      <a href="sight.html" data-tab="plain-sight">Hidden in Plain Sight</a>
+      <a href="logo.html" data-tab="logo">Hidden in the Logo</a>
+      <a href="solarflare.html" data-tab="solarflare">SolarFlare Forensics</a>
+    </nav>
+  </header>
+
+  <main class="challenge-card">
+    <h1>SolarFlare Forensics</h1>
+    <p>
+      Upload your PNG with the known header issue to <code>assets/solarflare.png</code>.
+      If it fails to render, inspect it with forensic tools and submit the recovered flag.
+    </p>
+
+    <figure class="artifact-box">
+      <img src="assets/solarflare.png" alt="SolarFlare forensic PNG artifact" />
+      <figcaption>PNG artifact target path: <code>assets/solarflare.png</code>.</figcaption>
+    </figure>
+
+    <form class="ctf-form" data-challenge="solarflare">
+      <label for="solarflare-flag">Enter CTF flag</label>
+      <div class="input-row">
+        <input id="solarflare-flag" name="flag" type="text" placeholder="CTF{your_flag_here}" autocomplete="off" required />
+        <button type="submit">Check</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; CyberOnslaught</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
