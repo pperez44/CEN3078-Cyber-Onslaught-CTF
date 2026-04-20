@@ -1,12 +1,27 @@
 const expectedFlags = {
   "plain-sight": "CTF{plain_sight}",
   logo: "flag(cyber)",
-  solarflare: "ctf(h3eader_hunt3r_2026)",
+  solarflare: {
+    prefix: "flag",
+    value: ["h3ader", "hunt3r_2026"].join("_"),
+  },
 };
 
 function getAcceptedAnswers(flagValue) {
   const accepted = new Set();
-  const normalized = (flagValue || "").trim().toLowerCase();
+  if (typeof flagValue === "object" && flagValue !== null && "prefix" in flagValue && "value" in flagValue) {
+    const prefix = String(flagValue.prefix || "").trim().toLowerCase();
+    const value = String(flagValue.value || "").trim().toLowerCase();
+
+    if (prefix && value) {
+      accepted.add(`${prefix}(${value})`);
+      accepted.add(value);
+    }
+
+    return accepted;
+  }
+
+  const normalized = String(flagValue || "").trim().toLowerCase();
 
   if (!normalized) {
     return accepted;
